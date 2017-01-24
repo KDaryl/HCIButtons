@@ -41,14 +41,35 @@ void Game::update(sf::Time dt)
 	switch (m_currentState)
 	{
 	case GameState::Splash:
+		//Simple check press to transition from screen to screen
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		{
+			setGameState(GameState::MainMenu);
+		}
 		break;
 	case GameState::MainMenu:
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		{
+			setGameState(GameState::Options);
+		}
 		break;
 	case GameState::Options:
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		{
+			setGameState(GameState::Game);
+		}
 		break;
 	case GameState::Game:
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		{
+			setGameState(GameState::Pause);
+		}
 		break;
 	case GameState::Pause:
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		{
+			setGameState(GameState::Splash);
+		}
 		break;
 	}
 }
@@ -59,14 +80,25 @@ void Game::render()
 	switch (m_currentState)
 	{
 	case GameState::Splash:
+		//Simple colour displays for each screen
+		m_window.clear(sf::Color(207, 18, 224));
+		m_window.display();
 		break;
 	case GameState::MainMenu:
+		m_window.clear(sf::Color(105, 90, 190));
+		m_window.display();
 		break;
 	case GameState::Options:
+		m_window.clear(sf::Color(15, 190, 90));
+		m_window.display();
 		break;
 	case GameState::Game:
+		m_window.clear(sf::Color(125, 30, 10));
+		m_window.display();
 		break;
 	case GameState::Pause:
+		m_window.clear(sf::Color(65, 120, 70));
+		m_window.display();
 		break;
 	default:
 		m_window.clear();

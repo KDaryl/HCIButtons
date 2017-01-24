@@ -28,6 +28,7 @@ private:
 	//Member variables
 	GameState m_currentState;
 	GameState m_previousState;
+	
 
 	sf::RenderWindow m_window;
 };
