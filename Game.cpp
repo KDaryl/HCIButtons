@@ -1,3 +1,6 @@
+/// <summary>
+/// Basic Game loop 
+/// </summary>
 #include "Game.h"
 
 Game::Game() :
