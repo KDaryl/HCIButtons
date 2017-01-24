@@ -1,3 +1,9 @@
 ﻿  Game.cpp
-  Switch.vcxproj -> F:\2nd-Year\Human Computer Interaction\ButtonsProject\HCIButtons\Debug\Switch.exe
-  Switch.vcxproj -> F:\2nd-Year\Human Computer Interaction\ButtonsProject\HCIButtons\Debug\Switch.pdb (Partial PDB)
+  Generating Code...
+  Compiling...
+  Splash.cpp
+c:\users\daryl k\desktop\hcibuttons\splash.cpp(7): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+  Main.cpp
+  Generating Code...
+  Switch.vcxproj -> C:\Users\Daryl k\Desktop\HCIButtons\Debug\Switch.exe
+  Switch.vcxproj -> C:\Users\Daryl k\Desktop\HCIButtons\Debug\Switch.pdb (Partial PDB)

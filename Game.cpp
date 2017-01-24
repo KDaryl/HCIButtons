@@ -4,9 +4,10 @@
 #include "Game.h"
 
 Game::Game() :
-	m_window(sf::VideoMode(1280, 720), "SWITCH"),
+	m_window(sf::VideoMode(m_screenWidth, m_screenHeight), "SWITCH"),
 	m_currentState(GameState::Splash),
-	m_previousState(GameState::Splash)
+	m_previousState(GameState::Splash),
+	m_splash(m_screenWidth, m_screenHeight)
 {
 
 }
@@ -41,10 +42,10 @@ void Game::update(sf::Time dt)
 	switch (m_currentState)
 	{
 	case GameState::Splash:
-		//Simple check press to transition from screen to screen
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+		m_splash.update();
+		if (m_splash.getFinished() || sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) //if the movie is over or the user presses the enter key
 		{
-			setGameState(GameState::MainMenu);
+			setGameState(GameState::MainMenu); //set the gamestate to the main menu
 		}
 		break;
 	case GameState::MainMenu:
@@ -80,9 +81,7 @@ void Game::render()
 	switch (m_currentState)
 	{
 	case GameState::Splash:
-		//Simple colour displays for each screen
-		m_window.clear(sf::Color(207, 18, 224));
-		m_window.display();
+		m_splash.render(m_window);
 		break;
 	case GameState::MainMenu:
 		m_window.clear(sf::Color(105, 90, 190));
