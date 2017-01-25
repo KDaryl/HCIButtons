@@ -7,7 +7,8 @@ Game::Game() :
 	m_window(sf::VideoMode(m_screenWidth, m_screenHeight), "SWITCH"),
 	m_currentState(GameState::Splash),
 	m_previousState(GameState::Splash),
-	m_splash(m_screenWidth, m_screenHeight)
+	m_splash(m_screenWidth, m_screenHeight),
+	m_mainMenu(m_screenWidth, m_screenHeight)
 {
 
 }
@@ -49,9 +50,10 @@ void Game::update(sf::Time dt)
 		}
 		break;
 	case GameState::MainMenu:
+		m_mainMenu.update();
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
 		{
-			setGameState(GameState::Options);
+			m_window.close(); // close the game if the enter key is pressed while on the main menu
 		}
 		break;
 	case GameState::Options:
@@ -84,8 +86,7 @@ void Game::render()
 		m_splash.render(m_window);
 		break;
 	case GameState::MainMenu:
-		m_window.clear(sf::Color(105, 90, 190));
-		m_window.display();
+		m_mainMenu.render(m_window);
 		break;
 	case GameState::Options:
 		m_window.clear(sf::Color(15, 190, 90));

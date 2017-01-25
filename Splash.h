@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 #include "sfeMovie\Movie.hpp" //our movie library
 
 class Splash

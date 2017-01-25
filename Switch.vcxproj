@@ -117,11 +117,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Splash.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Splash.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

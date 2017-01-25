@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Splash.h"
-
+#include "MainMenu.h"
 //Our enum for gamestate, will be used for updating and drawing
 enum class GameState
 {
@@ -34,7 +34,11 @@ private:
 	GameState m_currentState;
 	GameState m_previousState;
 	
+	//SFML objects
+	sf::Font m_font; //will be used for displaying text
 	sf::RenderWindow m_window;
 
+	//Our screen objects
 	Splash m_splash;
+	MainMenu m_mainMenu;
 };
