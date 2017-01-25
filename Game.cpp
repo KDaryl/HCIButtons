@@ -50,11 +50,10 @@ void Game::update(sf::Time dt)
 		}
 		break;
 	case GameState::MainMenu:
+		if (m_splash.getScreenFinished() == false)
+			m_splash.update();
+
 		m_mainMenu.update();
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
-		{
-			m_window.close(); // close the game if the enter key is pressed while on the main menu
-		}
 		break;
 	case GameState::Options:
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
@@ -83,10 +82,19 @@ void Game::render()
 	switch (m_currentState)
 	{
 	case GameState::Splash:
+		m_window.clear();
 		m_splash.render(m_window);
+		m_window.display();
 		break;
 	case GameState::MainMenu:
+		m_window.clear();
+
+		if (m_splash.getScreenFinished() == false)
+			m_splash.render(m_window);
+
 		m_mainMenu.render(m_window);
+
+		m_window.display();
 		break;
 	case GameState::Options:
 		m_window.clear(sf::Color(15, 190, 90));
